@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="sidenav">
+    <div class="login-main-text">
+      <h2>
+        Application<br />
+        Register
+      </h2>
+      <p>Register from here to access.</p>
+    </div>
+  </div>
+
+  <div class="main" style="margin-top: 50px">
+    <div class="row">
+      <br />
+      <div class="col-md-8">
+        <form [formGroup]="bookForm">
+          <div class="col-md-8 form-group">
+            <label for="title">Title</label>
+            <input
+              #title
+              formControlName="title"
+              id="title"
+              name="title"
+              class="form-control"
+              [(ngModel)]="bookTitle"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="
+                bookForm.get('title').invalid && bookForm.get('title').touched
+              "
+            >
+              <div *ngIf="bookForm.get('title').errors.required">
+                Please enter the title
+              </div>
+              <div *ngIf="bookForm.get('title').errors.minLength">
+                Title should be more then 3 lett.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 form-group">
+            <label for="author">Author Name</label>
+            <div class="input-group mb-3">
+              <input
+                #author
+                type="text"
+                formControlName="author"
+                id="author"
+                name="author"
+                [(ngModel)]="bookAuthor"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-9 form-group">
+            <label for="description">Description</label>
+            <div class="input-group mb-3">
+              <textarea
+                #description
+                type="text"
+                formControlName="description"
+                id="description"
+                name="description"
+                [(ngModel)]="bookDescription"
+                class="form-control"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-8 form-group">
+            <label for="price">Price</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                #price
+                type="number"
+                formControlName="price"
+                id="price"
+                name="price"
+                [(ngModel)]="bookPrice"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-8 form-group">
+            <label for="Category">Category</label>
+            <!-- <select class="form-control" id="category"
+                      formControlName="category"
+                      [(ngModel)]="pCategory">
+                <option value=""> </option>
+                <option *ngFor="let c of categories" [value]="c.$key">
+                  {{c.name}}
+                </option>
+              </select> -->
+          </div>
+          <div class="col-md-8 form-group">
+            <label for="image">Image Url</label>
+            <input
+              #image
+              formControlName="image"
+              id="image"
+              name="image"
+              [(ngModel)]="bookImageUrl"
+              class="form-control"
+            />
+          </div>
+          <button (click)="onSave()" type="submit" class="btn btn-success">
+            Save
+          </button>
+          <button
+            style="margin-left: 10px"
+            type="button"
+            (click)="onDelete()"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem">
+          <img class="card-img-top" [src]="image.value" />
+          <div class="card-body">
+            <h5 class="card-title">{{ title.value }}</h5>
+            <h2 class="card-text">{{ author.value }}</h2>
+            <p class="card-text">{{ description.value }}</p>
+            <p class="card-text">{{ price.value | currency: "USD":true }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

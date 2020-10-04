@@ -848,6 +848,10 @@ table a,
 
   .container {
   }
+  .container {
+    padding: 80px 0;
+  }
+
   #comments input[type="reset"] {
     margin-top: 10px;
   }
