@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Book } from "../modules/book";
+import { BookService } from "../services/book.service";
 
 @Component({
   selector: "app-book-form",
@@ -8,25 +10,16 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./book-form.component.css"],
 })
 export class BookFormComponent {
-  bookTitle: "";
-  bookAuthor: "";
-  bookPrice: "";
-  bookDescription: "";
-  bookImageUrl: "";
-  pCategory: "";
-  bookForm: FormGroup;
+  public newbook: Book = {} as Book;
   constructor(
-    private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
-  ) {
-    this.bookForm = fb.group({
-      title: ["", [Validators.required, Validators.minLength(3)]],
-      price: ["", Validators.required],
-      image: ["", Validators.required],
-      category: ["", Validators.required],
-    });
+    private route: ActivatedRoute,
+    private bookService: BookService
+  ) {}
+  onSave(form: NgForm) {
+    this.bookService
+      .createData(this.newbook)
+      .subscribe((response) => console.log(response));
   }
-  onSave() {}
   onDelete() {}
 }

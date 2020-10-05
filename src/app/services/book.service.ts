@@ -3,23 +3,21 @@ import { Injectable } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { param } from "jquery";
 import { Observable } from "rxjs";
-import { Book } from "../book";
+import { Book } from "../modules/book";
+import { BookTdo } from "../modules/booksTdo";
 
 @Injectable({
   providedIn: "root",
 })
 export class BookService {
-  private readonly _url: string;
-
-  Data: any;
-  books: any;
+  private readonly url: string;
 
   constructor(private _httpClient: HttpClient, private route: ActivatedRoute) {
-    this._url = "api/book";
+    this.url = "api/book";
   }
 
   getMetaData(): Observable<any> {
-    return this._httpClient.options(this._url);
+    return this._httpClient.options(this.url);
   }
 
   getDataList(params?: any): Observable<any> {
@@ -27,7 +25,7 @@ export class BookService {
       params: new HttpParams().set("paramBean", JSON.stringify(params || {})),
     };
 
-    return this._httpClient.get(this._url, reqOptions);
+    return this._httpClient.get(this.url, reqOptions);
   }
 
   getData(id: number, params?: any): Observable<any> {
@@ -35,10 +33,13 @@ export class BookService {
       params: new HttpParams().set("paramBean", JSON.stringify(params || {})),
     };
 
-    return this._httpClient.get(`${this._url}/${id}`, reqOptions);
+    return this._httpClient.get(`${this.url}/${id}`, reqOptions);
   }
 
   createData(book: Book): Observable<any> {
-    return this._httpClient.post(`${this._url}/new`, book);
+    // const reqOptions = {
+    //   params: new HttpParams().set("paramBean", JSON.stringify(param || {})),
+    // };
+    return this._httpClient.post(`${this.url}/new`, book);
   }
 }

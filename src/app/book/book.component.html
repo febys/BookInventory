@@ -22,17 +22,20 @@
     </div>
     <div class="col">
       <div class="row">
-        <ng-container *ngFor="let i = index">
-          <div class="col">
+        <ng-container *ngFor="let dataB of data; let i = index">
+          <div class="col-md-8">
             <div class="card" style="width: 16rem">
-              <!-- <img class="card-img-top" [src]="p.image" />
-            <div class="card-body">
-              <h5 class="card-title">{{ p.title }}</h5>
-              <p class="card-text">{{ p.price | currency: "USD":true }}</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-block">Add To Cart</a>
-            </div> -->
+              <img class="card-img-top" [src]="dataB.image" />
+              <div class="card-body">
+                <h5 class="card-title">{{ dataB.title }}</h5>
+                <h2 class="card-title">{{ dataB.author }}</h2>
+                <p class="card-text">
+                  {{ dataB.price | currency: "USD":true }}
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-block">View More </a>
+              </div>
             </div>
           </div>
           <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>

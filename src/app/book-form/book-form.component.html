@@ -13,27 +13,21 @@
     <div class="row">
       <br />
       <div class="col-md-8">
-        <form [formGroup]="bookForm">
+        <form (ngSubmit)="onSave(f)" #f="ngForm">
           <div class="col-md-8 form-group">
             <label for="title">Title</label>
             <input
               #title
-              formControlName="title"
+              type="text"
               id="title"
               name="title"
               class="form-control"
-              [(ngModel)]="bookTitle"
+              [(ngModel)]="newbook.title"
             />
-            <div
-              class="alert-danger"
-              *ngIf="
-                bookForm.get('title').invalid && bookForm.get('title').touched
-              "
-            >
-              <div *ngIf="bookForm.get('title').errors.required">
-                Please enter the title
-              </div>
-              <div *ngIf="bookForm.get('title').errors.minLength">
+
+            <div class="alert-danger" *ngIf="f.invalid && f.touched">
+              <div *ngIf="f.errors.required">Please enter the title</div>
+              <div *ngIf="f.errors.minLength">
                 Title should be more then 3 lett.
               </div>
             </div>
@@ -44,10 +38,9 @@
               <input
                 #author
                 type="text"
-                formControlName="author"
                 id="author"
                 name="author"
-                [(ngModel)]="bookAuthor"
+                [(ngModel)]="newbook.author"
                 class="form-control"
               />
             </div>
@@ -58,10 +51,9 @@
               <textarea
                 #description
                 type="text"
-                formControlName="description"
                 id="description"
                 name="description"
-                [(ngModel)]="bookDescription"
+                [(ngModel)]="newbook.description"
                 class="form-control"
                 rows="3"
               ></textarea>
@@ -76,21 +68,21 @@
               <input
                 #price
                 type="number"
-                formControlName="price"
                 id="price"
                 name="price"
-                [(ngModel)]="bookPrice"
+                [(ngModel)]="newbook.price"
                 class="form-control"
               />
             </div>
           </div>
 
           <div class="col-md-8 form-group">
-            <label for="Category">Category</label>
+            <!--            <label for="Category">Category</label>-->
             <!-- <select class="form-control" id="category"
-                      formControlName="category"
-                      [(ngModel)]="pCategory">
+                     y"
+                      [(ngModel)]="book.image"
                 <option value=""> </option>
+                
                 <option *ngFor="let c of categories" [value]="c.$key">
                   {{c.name}}
                 </option>
@@ -100,16 +92,14 @@
             <label for="image">Image Url</label>
             <input
               #image
-              formControlName="image"
               id="image"
+              type="text"
               name="image"
-              [(ngModel)]="bookImageUrl"
+              [(ngModel)]="newbook.image"
               class="form-control"
             />
           </div>
-          <button (click)="onSave()" type="submit" class="btn btn-success">
-            Save
-          </button>
+          <button type="submit" class="btn btn-success">Save</button>
           <button
             style="margin-left: 10px"
             type="button"
