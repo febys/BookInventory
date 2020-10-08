@@ -5,6 +5,7 @@
 />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="sidenav">
@@ -17,62 +18,16 @@
   </div>
 </div>
 <div class="main">
-  <div class="col-md-6 col-sm-12">
+  <div class="col-md-8 col-sm-12">
     <div class="login-form">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
-        <div class="form-group">
-          <label for="usernam">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            formControlName="username"
-            placeholder="Username"
-          />
-          <div *ngIf="submitted && f.username.errors">
-            <small
-              *ngIf="f.username.errors.required"
-              class="form-text text-muted"
-              >Username is required</small
-            >
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <div *ngIf="submitted && f.password.errors">
-            <small
-              *ngIf="f.password.errors.required"
-              class="form-text text-muted"
-              >Password is required</small
-            >
-          </div>
-        </div>
-        <div *ngIf="error" class="my-3">
-          <small class="form-text text-muted">{{ error | json }}</small>
-        </div>
-        <button
-          type="submit"
-          class="btn btn-black"
-          [disabled]="loginForm.invalid"
-        >
-          Submit
-        </button>
-        <button
-          type="submit"
-          class="btn btn-secondary"
-          style="margin-left: 10px"
-          routerLink="/signup"
-        >
-          Register
-        </button>
-      </form>
+      <div class="row">
+        <h4 style="margin-left: 40px">
+          (Click The Button to LogIn With Google)
+        </h4>
+      </div>
+      <button class="btn btn-black" (click)="signInGoogle()">
+        Google SignIn <i class="fab fa-google"></i>
+      </button>
     </div>
   </div>
 </div>

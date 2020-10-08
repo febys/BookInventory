@@ -1,46 +1,51 @@
-<div class="container">
-  <br />
-
-  <div class="row">
-    <div class="col-3">
-      <div class="sticky-top">
-        <div class="list-group">
-          <a class="list-group-item list-group-item-action" routerLink="/book"
-            >All Categories</a
-          >
-          <!-- <a
-          *ngFor="let c of categories"
-          routerLink="/"
-          [queryParams]="{ category: c.$key }"
-          [class.active]="category === c.$key"
-          class="list-group-item list-group-item-action"
+<br />
+<div class="row" style="margin-left: 50px; margin-top: 30px">
+  <div class="col-3" style="margin-right: 150px">
+    <div class="sticky-top">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action" routerLink="/book"
+          >All Categories</a
         >
-          {{ c.name }}
-        </a> -->
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="row">
-        <ng-container *ngFor="let dataB of data; let i = index">
-          <div class="col-md-8">
-            <div class="card" style="width: 16rem">
-              <img class="card-img-top" [src]="dataB.image" />
-              <div class="card-body">
-                <h5 class="card-title">{{ dataB.title }}</h5>
-                <h2 class="card-title">{{ dataB.author }}</h2>
-                <p class="card-text">
-                  {{ dataB.price | currency: "USD":true }}
-                </p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary btn-block">View More </a>
-              </div>
-            </div>
-          </div>
-          <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
-        </ng-container>
+        <a
+          *ngFor="let category of bookMetadata?.category?.fieldDataPool?.list"
+          class="list-group-item list-group-item-action"
+          routerLink="/book"
+          [queryParams]="{ categoryB: category?.id }"
+          [class.active]="categoryB === category?.id"
+        >
+          {{ category?.label }}
+        </a>
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="row">
+      <ng-container *ngFor="let dataB of filteredCategory; let i = index">
+        <div class="col">
+          <div class="card" style="width: 16rem">
+            <img class="card-img-top" [src]="dataB.image" />
+            <div class="card-body">
+              <h5 class="card-title">{{ dataB.title }}</h5>
+              <h2 class="card-title">{{ dataB.author }}</h2>
+              <p class="card-text">
+                {{ dataB.price | currency: "USD":true }}
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary btn-block">View More </a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </div>
 </div>
+<footer>
+  <mat-paginator
+    [length]="[length]"
+    [pageSize]="[pageSize]"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+  >
+  </mat-paginator>
+</footer>

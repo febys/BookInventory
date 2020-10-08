@@ -11,13 +11,26 @@ import { BookComponent } from "./book/book.component";
 import { LoginComponent } from "./login/login.component";
 import { GoogleLoginProvider } from "angular-6-social-login";
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
-import { AdminBooksComponent } from "./admin-books/admin-books.component";
-import { BookFormComponent } from "./book-form/book-form.component";
+import { AdminBooksComponent } from "./book/admin-books/admin-books.component";
+import { BookFormComponent } from "./book/book-form/book-form.component";
 import { SignupComponent } from "./signup/signup.component";
 import { DataTablesModule } from "angular-datatables";
-import { BookService } from "./services/book.service";
+import { BookService } from "./book/services/book.service";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { AppauthService } from "./auth/appauth.service";
+import { BookFormService } from "./book/book-form/book-form.service";
+import {
+  MatNativeDateModule,
+  MatStepperModule,
+  MatFormFieldModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatInputModule,
+} from "@angular/material";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from "@angular/material/dialog";
+
 // Google Authentication Service
 export function getAuthServiceConfig() {
   return new AuthServiceConfig([
@@ -50,6 +63,15 @@ export function getAuthServiceConfig() {
     AppRoutingModule,
     DataTablesModule,
     SocialLoginModule,
+    MatNativeDateModule,
+    MatStepperModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatDialogModule,
   ],
   exports: [LoginComponent],
   providers: [
@@ -60,6 +82,7 @@ export function getAuthServiceConfig() {
     },
     AppauthService,
     BookService,
+    BookFormService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfig,

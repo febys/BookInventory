@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AdminBooksComponent } from "./admin-books/admin-books.component";
-import { BookFormComponent } from "./book-form/book-form.component";
+import { AdminBooksComponent } from "./book/admin-books/admin-books.component";
+import { BookFormComponent } from "./book/book-form/book-form.component";
 import { BookComponent } from "./book/book.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "admin/books/new", component: BookFormComponent },
-  { path: "admin/books/:id", component: AdminBooksComponent },
+  { path: "admin/books/:id", component: BookFormComponent },
   { path: "admin/books", component: AdminBooksComponent },
 ];
 

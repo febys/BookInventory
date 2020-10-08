@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <br />
+    <br />
+    <button
+      style="margin-top: 40px"
+      routerLink="/admin/books/new"
+      class="btn btn-primary"
+    >
+      New Book
+    </button>
+  </div>
+  <br />
+  <div class="row" style="margin-top: 30px; width: 100%">
+    <div class="col-md-12">
+      <table
+        style="width: 100% auto"
+        class="table table-striped table-bordered table-sm row-border hover"
+        datatable
+        [dtOptions]="dtOptions"
+      >
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>PublishedDate</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let group of data">
+            <td>{{ group.title }}</td>
+            <td>{{ group.author }}</td>
+            <td>
+              <p style="width: 100%; height: 120px; overflow: hidden">
+                {{ group.description }}
+              </p>
+            </td>
+            <td>{{ group.publishedDate }}</td>
+            <td>{{ group.category }}</td>
+            <td>{{ group.price }}</td>
+            <td>
+              <p style="width: 100px; overflow: hidden">{{ group.image }}</p>
+            </td>
+            <td>
+              <button
+                style="margin-bottom: 5px"
+                class="btn btn-success"
+                [routerLink]="['/admin/books/', group.id]"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="onDelete(group.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

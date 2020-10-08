@@ -1,5 +1,4 @@
-export interface BookTdo {
-  id: number;
+export class Book {
   title: string;
 
   description: string;

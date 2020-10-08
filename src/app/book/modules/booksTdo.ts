@@ -1,4 +1,5 @@
-export interface Book {
+export interface BookEntity {
+  id: number;
   title: string;
 
   description: string;

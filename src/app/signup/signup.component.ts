@@ -1,6 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AppauthService } from "../auth/appauth.service";
 
 @Component({
   selector: "app-signup",
@@ -8,54 +15,62 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./signup.component.css"],
 })
 export class SignupComponent implements OnInit {
-  loginForm: FormGroup;
-  submitted = false;
-  returnUrl: string;
-  error: string;
+  formGroup: FormGroup;
+
+  nameFormGroup: FormGroup;
+  emailFormGroup: FormGroup;
+  passwordFormGroup: FormGroup;
+  uuid: any;
+  /** Returns a FormArray with the name 'formArray'. */
+  get formArray(): AbstractControl | null {
+    return this.formGroup.get("formArray");
+  }
 
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router
+    private _formBuilder: FormBuilder,
+    private authService: AppauthService
   ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ["", Validators.required],
-      email: ["", Validators.required],
-      password: ["", Validators.required],
+    this.emailFormGroup = new FormGroup({
+      username: new FormControl("", Validators.email),
     });
-
-    // reset login status
-    // this.authService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.passwordFormGroup = this._formBuilder.group({
+      passwordCtrl: ["", Validators.required],
+    });
+    this.nameFormGroup = this._formBuilder.group({
+      firstNameFormCtrl: ["", Validators.required],
+      lastNameFormCtrl: ["", Validators.required],
+      emailFormCtrl: ["", Validators.email],
+      passwordCtrl: ["", Validators.required],
+    });
   }
-
-  get f() {
-    return this.loginForm.controls;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
+  emailStep() {
+    if (this.emailFormGroup.valid) {
+      console.log(this.emailFormGroup.value);
+      this.authService.uuid(this.emailFormGroup.value).subscribe((value) => {
+        const em = value.username;
+        this.uuid = value.uuid;
+        console.log(this.uuid);
+        console.log(em);
+      });
     }
-
-    // this.authService
-    //   .login(this.f.username.value, this.f.password.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     (data) => {
-    //       this.error = "";
-    //       this.router.navigate([this.returnUrl]);
-    //     },
-    //     (error) => {
-    //       this.error = error;
-    //     }
-    //   );
+  }
+  passwordStep() {
+    if (this.passwordFormGroup.valid) {
+      console.log(this.passwordFormGroup.value);
+      this.authService
+        .password(this.passwordFormGroup.value)
+        .subscribe((value) => {
+          console.log(value.uuid);
+        });
+    }
+  }
+  registerStep() {
+    if (this.nameFormGroup.valid) {
+      this.authService
+        .register(this.nameFormGroup.value)
+        .subscribe((data) => console.log(data));
+    }
   }
 }
