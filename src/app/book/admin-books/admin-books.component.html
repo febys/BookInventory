@@ -29,6 +29,7 @@
         style="width: 100% auto"
         class="table table-striped table-bordered table-sm row-border hover"
         datatable
+        [dtTrigger]="dtTrigger"
         [dtOptions]="dtOptions"
       >
         <thead>
@@ -66,9 +67,7 @@
               >
                 Edit
               </button>
-              <a class="btn btn-danger" (click)="onDelete(group.id)">
-                <i class="far fa-trash-alt"></i> Delete</a
-              >
+              <a class="btn btn-danger" (click)="onDelete(group.id)"> Delete</a>
             </td>
           </tr>
         </tbody>
