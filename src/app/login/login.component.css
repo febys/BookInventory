@@ -3,7 +3,7 @@ body {
   background-image: url("https://c.pxhere.com/photos/a6/62/life_beauty_scene_library_books_architecture_ornate_vintage-707871.jpg!d");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 88%;
+  height: 85%;
   font-family: "Numans", sans-serif;
 }
 
@@ -92,8 +92,8 @@ input.ng-invalid.ng-touched {
 }
 
 .sidenav {
-  height: 100%;
-  margin-top: 55px;
+  height: auto;
+  margin-top: 130px;
   background-color: #252b34;
   overflow-x: hidden;
   padding-top: 20px;

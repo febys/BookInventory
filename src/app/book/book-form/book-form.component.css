@@ -11,8 +11,8 @@ body {
 }
 
 .sidenav {
-  height: 100%;
-  margin-top: 4%;
+  height: auto;
+  margin-top: 10%;
   background-color: #252b34;
   overflow-x: hidden;
   padding-top: 20px;
@@ -24,7 +24,7 @@ body {
 
 @media screen and (max-height: 400px) {
   .sidenav {
-    padding-top: 15px;
+    padding-top: 30px;
   }
 }
 

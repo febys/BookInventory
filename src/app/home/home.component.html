@@ -28,116 +28,47 @@
     </div>
   </div>
   <br />
-  <div class="row" style="background-color: #3f4a59">
-    <div class="wrapper">
-      <div class="hoc container clear">
-        <div class="nospace elements clear">
-          <div class="row">
-            <div
+  <div class="row" style="background-color: #e9f1fc">
+    <!-- <div class="wrapper"> -->
+    <div class="col">
+      <div class="nospace elements clear">
+        <div class="row">
+          <img
+            src="assets\community-books-header.jpg"
+            style="margin-bottom: 10px"
+          />
+          <!-- <div
               style="margin-left: 600px; margin-bottom: 50px; margin-top: -50px"
               class="center btmspace-80"
             >
               <h2 class="heading font-x3">-- New Books --</h2>
-            </div>
-          </div>
-          <div class="row">
-            <mat-card style="margin-left: 170px" class="example-card">
-              <div class="col">
-                <figure>
-                  <img mat-card-image [src]="data[1].image" />
-                </figure>
+            </div> -->
+        </div>
+        <div class="row">
+          <mat-card style="margin-left: 200px" class="example-card">
+            <div class="col">
+              <figure>
+                <img mat-card-image [src]="data[1].image" />
+              </figure>
 
-                <mat-card-content>
-                  <i
-                    ><b> Title : "{{ data[1].title }}" </b></i
-                  >
-                  <h5 class="card-title">
-                    <h4>
-                      <b><u>Author :</u></b>
-                    </h4>
-                    "{{ data[1].author }}"
-                  </h5>
-                  <p class="card-text">
-                    {{ data[1].price | currency: "USD":true }}
-                  </p>
-                  <mat-card-actions
-                    ><figcaption>
-                      <a
-                        mat-button
-                        [routerLink]="['/home/', data[1].id]"
-                        (click)="openDialog()"
-                        class="btn btn-primary btn-block"
-                      >
-                        View More
-                      </a>
-                    </figcaption></mat-card-actions
-                  >
-                </mat-card-content>
-              </div>
-
-              <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
-            </mat-card>
-            <mat-card class="example-card">
-              <div class="col">
-                <figure>
-                  <img mat-card-image [src]="data[3].image" />
-                </figure>
-
-                <mat-card-content>
-                  <i
-                    ><b> Title : "{{ data[3].title }}" </b></i
-                  >
-                  <h5 class="card-title">
-                    <h4>
-                      <b><u>Author :</u></b>
-                    </h4>
-                    "{{ data[3].author }}"
-                  </h5>
-                  <p class="card-text">
-                    {{ data[3].price | currency: "USD":true }}
-                  </p>
-                  <mat-card-actions>
-                    <figcaption>
-                      <a
-                        mat-button
-                        [routerLink]="['/home/', data[3].id]"
-                        (click)="openDialog()"
-                        class="btn btn-primary btn-block"
-                      >
-                        View More
-                      </a>
-                    </figcaption>
-                  </mat-card-actions>
-                </mat-card-content>
-              </div>
-
-              <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
-            </mat-card>
-            <mat-card class="example-card">
-              <div class="col">
-                <figure>
-                  <img mat-card-image [src]="data[5].image" />
-                </figure>
-
-                <mat-card-content>
-                  <i
-                    ><b> Title : "{{ data[5].title }}" </b></i
-                  >
-                  <h5 class="card-title">
-                    <h4>
-                      <b><u>Author :</u></b>
-                    </h4>
-                    "{{ data[5].author }}"
-                  </h5>
-                  <p class="card-text">
-                    {{ data[5].price | currency: "USD":true }}
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <figcaption>
+              <mat-card-content>
+                <i
+                  ><b> Title : "{{ data[1].title }}" </b></i
+                >
+                <h5 class="card-title">
+                  <h4>
+                    <b><u>Author :</u></b>
+                  </h4>
+                  "{{ data[1].author }}"
+                </h5>
+                <p class="card-text">
+                  {{ data[1].price | currency: "USD":true }}
+                </p>
+                <mat-card-actions
+                  ><figcaption>
                     <a
                       mat-button
-                      [routerLink]="['/home/', data[5].id]"
+                      [routerLink]="['/home/', data[1].id]"
                       (click)="openDialog()"
                       class="btn btn-primary btn-block"
                     >
@@ -145,13 +76,87 @@
                     </a>
                   </figcaption></mat-card-actions
                 >
-              </div>
-            </mat-card>
-          </div>
+              </mat-card-content>
+            </div>
+          </mat-card>
+          <mat-card class="example-card">
+            <div class="col">
+              <figure>
+                <img mat-card-image [src]="data[3].image" />
+              </figure>
+
+              <mat-card-content>
+                <i
+                  ><b> Title : "{{ data[3].title }}" </b></i
+                >
+                <h5 class="card-title">
+                  <h4>
+                    <b><u>Author :</u></b>
+                  </h4>
+                  "{{ data[3].author }}"
+                </h5>
+                <p class="card-text">
+                  {{ data[3].price | currency: "USD":true }}
+                </p>
+                <mat-card-actions>
+                  <figcaption>
+                    <a
+                      mat-button
+                      [routerLink]="['/home/', data[3].id]"
+                      (click)="openDialog()"
+                      class="btn btn-primary btn-block"
+                    >
+                      View More
+                    </a>
+                  </figcaption>
+                </mat-card-actions>
+              </mat-card-content>
+            </div>
+
+            <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
+          </mat-card>
+          <mat-card class="example-card">
+            <div class="col">
+              <figure>
+                <img mat-card-image [src]="data[5].image" />
+              </figure>
+
+              <mat-card-content>
+                <i
+                  ><b> Title : "{{ data[5].title }}" </b></i
+                >
+                <h5 class="card-title">
+                  <h4>
+                    <b><u>Author :</u></b>
+                  </h4>
+                  "{{ data[5].author }}"
+                </h5>
+                <p class="card-text">
+                  {{ data[5].price | currency: "USD":true }}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <figcaption>
+                  <a
+                    mat-button
+                    [routerLink]="['/home/', data[5].id]"
+                    (click)="openDialog()"
+                    class="btn btn-primary btn-block"
+                  >
+                    View More
+                  </a>
+                </figcaption></mat-card-actions
+              >
+            </div>
+          </mat-card>
         </div>
       </div>
     </div>
   </div>
 
-  <a id="backtotop" href="#top">fgjjffj<i class="fa fa-chevron-up"></i></a>
+  <div class="scroll-to-top">
+    <button>
+      <i class="fa fa-chevron-up"></i>
+    </button>
+  </div>
 </body>

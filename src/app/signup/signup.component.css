@@ -22,8 +22,8 @@ input.ng-invalid.ng-touched {
 }
 
 .sidenav {
-  height: 100%;
-  margin-top: 55px;
+  height: auto;
+  margin-top: 130px;
 
   background-color: #252b34;
   overflow-x: hidden;
@@ -70,7 +70,7 @@ input.ng-invalid.ng-touched {
 }
 
 .login-main-text {
-  margin-top: 20%;
+  margin-top: 15%;
   padding: 60px;
   color: #fff;
 }
