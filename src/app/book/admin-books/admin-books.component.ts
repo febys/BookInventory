@@ -9,39 +9,35 @@ import { BookService } from "../services/book.service";
   styleUrls: ["./admin-books.component.css"],
 })
 export class AdminBooksComponent implements OnInit {
-  constructor(private bookService: BookService, private router: Router) {}
   data: any;
   length: any;
   bookMetadata: any;
   editMode: false;
   title = "angulardatatables";
   dtOptions: DataTables.Settings = {};
-  ngOnInit() {
-    this.bookService.getData;
-    this._getDataList();
-    this.bookService.getMetaData().subscribe((res) => {
-      this.bookMetadata = res.data.fieldMap;
-      // console.log(this.bookMetadata);
-    });
-    this.dtOptions = {
-      pagingType: "full_numbers",
-      pageLength: this.length,
-      processing: true,
-      lengthChange: true,
-    };
-  }
-  private _getDataList(): void {
+  constructor(private bookService: BookService, private router: Router) {
     this.bookService.getDataList({ fillFieldLabels: true }).subscribe(
       (res) => {
         this.data = res.data.list;
         this.length = this.data.length;
-        console.log(this.length);
+
+        this.dtOptions = {
+          pagingType: "full_numbers",
+          pageLength: this.length,
+          processing: false,
+          lengthChange: true,
+        };
       },
 
       () => console.log("Complete")
     );
+    this.bookService.getMetaData().subscribe((res) => {
+      this.bookMetadata = res.data.fieldMap;
+      // console.log(this.bookMetadata);
+    });
   }
-  onEdit() {}
+  ngOnInit() {}
+
   onDelete(id: number) {
     this.bookService.deleteData(id).subscribe((value) => {
       // console.log(value);

@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>
+  <i
+    ><b style="background-color: #ddd"> Title : "{{ data.title }}" </b></i
+  >
+</h2>
+
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-md-4">
+      <img style="height: 300px; width: 230px" [src]="data.image" />
+    </div>
+    <div class="col-md-8">
+      <div class="container">
+        <table>
+          <tbody>
+            <tr class="w-100">
+              <td class="w-100"><b>Author :</b></td>
+              <td class="w-200">
+                <i> "{{ data.author }}"</i>
+              </td>
+            </tr>
+            <tr class="w-150">
+              <td class="w-100"><b> Description :</b></td>
+            </tr>
+            <tr class="ml-50 w-400">
+              <td class="w-350">{{ data.description }}</td>
+            </tr>
+
+            <tr class="w-100">
+              <td class="w-100"><b>Category :</b></td>
+              <td class="w-50">
+                <u>{{ data.category }}</u>
+              </td>
+            </tr>
+            <tr class="w-100">
+              <td class="w-50"><b> Price :</b></td>
+              <td class="w-50">{{ data.price }} $</td>
+            </tr>
+
+            <tr class="w-100">
+              <td class="w-50"><b> Number :</b></td>
+              <td class="w-50">
+                {{ data.nr }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

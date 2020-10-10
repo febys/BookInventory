@@ -19,6 +19,7 @@ import { BookService } from "./book/services/book.service";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { AppauthService } from "./auth/appauth.service";
 import { BookFormService } from "./book/book-form/book-form.service";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 import {
   MatNativeDateModule,
   MatStepperModule,
@@ -26,10 +27,15 @@ import {
   MatButtonModule,
   MatButtonToggleModule,
   MatInputModule,
+  MatIconModule,
+  MatCardModule,
+  MatGridListModule,
 } from "@angular/material";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
+import { DialogComponent } from "./dialogs/dialog/dialog.component";
+import { CarouselModule } from "ngx-owl-carousel-o";
 
 // Google Authentication Service
 export function getAuthServiceConfig() {
@@ -53,7 +59,9 @@ export function getAuthServiceConfig() {
     AdminBooksComponent,
     BookFormComponent,
     SignupComponent,
+    DialogComponent,
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -72,6 +80,11 @@ export function getAuthServiceConfig() {
     MatButtonToggleModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatIconModule,
+    MatCardModule,
+    CarouselModule,
+    MatGridListModule,
+    Ng2SearchPipeModule,
   ],
   exports: [LoginComponent],
   providers: [

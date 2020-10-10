@@ -1,12 +1,19 @@
+body {
+  background: url(https://media.timeout.com/images/105628370/1024/576/image.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: repeat-y;
+  height: 90%;
+  font-family: "Numans", sans-serif;
+}
 .mat-form-field {
   margin-top: 16px;
 }
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
-}
-body {
-  font-family: "Lato", sans-serif;
 }
 
 .main-head {
@@ -17,13 +24,10 @@ body {
 .sidenav {
   height: 100%;
   margin-top: 55px;
+
   background-color: #252b34;
   overflow-x: hidden;
   padding-top: 20px;
-}
-
-.main {
-  padding: 0px 10px;
 }
 
 @media screen and (max-height: 400px) {
@@ -41,29 +45,28 @@ body {
     margin-top: 10%;
   }
 }
+.main {
+  width: 780px;
+  height: 350px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 30px;
+}
+.sidenav {
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
 
-@media screen and (min-width: 768px) {
-  .main {
-    margin-left: 32%;
-    margin-top: 10%;
-  }
+.login-form {
+  margin-top: 50%;
+  margin-left: 50px;
+}
 
-  .sidenav {
-    width: 30%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-  }
-
-  .login-form {
-    margin-top: 50%;
-    margin-left: 50px;
-  }
-
-  .register-form {
-    margin-top: 20%;
-  }
+.register-form {
+  margin-top: 20%;
 }
 
 .login-main-text {

@@ -6,28 +6,52 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous"
+/>
 <!------ Include the above in your HEAD tag ---------->
-
-<div class="sidenav">
-  <div class="login-main-text">
-    <h2>
-      Application<br />
-      Login Page
-    </h2>
-    <p>Login or register from here to access.</p>
-  </div>
-</div>
-<div class="main">
-  <div class="col-md-8 col-sm-12">
-    <div class="login-form">
-      <div class="row">
-        <h4 style="margin-left: 40px">
-          (Click The Button to LogIn With Google)
-        </h4>
+<body>
+  <div class="row">
+    <div class="sidenav col-md-4">
+      <div class="login-main-text">
+        <h2>
+          Application<br />
+          Login Page
+        </h2>
+        <p>Login or register from here to access.</p>
       </div>
-      <button class="btn btn-black" (click)="signInGoogle()">
-        Google SignIn <i class="fab fa-google"></i>
-      </button>
+    </div>
+    <div class="main col-md-8">
+      <div style="margin-top: 140px; margin-left: 100px" class="card">
+        <div class="card-header">
+          <h3>Sign In</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-google-plus-square"></i></span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="input-group form-group">
+            <div
+              style="margin-top: 30px; margin-left: 30px"
+              class="input-group-prepend"
+            >
+              <span class="input-group-text"><i class="fas fa-user"> </i></span
+              ><button class="btn btn-warning" (click)="signInGoogle()">
+                Google SignIn <i class="fab fa-google"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</body>

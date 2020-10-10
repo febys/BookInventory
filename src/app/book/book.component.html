@@ -1,9 +1,12 @@
-<br />
-<div class="row" style="margin-left: 50px; margin-top: 30px">
-  <div class="col-3" style="margin-right: 150px">
-    <div class="sticky-top">
+<body>
+  <br />
+  <div class="row" style="margin-left: 30px; margin-top: 30px">
+    <div class="col-3" style="margin-right: 100px">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action" routerLink="/book"
+        <a
+          class="list-group-item list-group-item-action"
+          [class.active]="!categoryB"
+          routerLink="/book"
           >All Categories</a
         >
         <a
@@ -17,35 +20,69 @@
         </a>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="row">
-      <ng-container *ngFor="let dataB of filteredCategory; let i = index">
-        <div class="col">
-          <div class="card" style="width: 16rem">
-            <img class="card-img-top" [src]="dataB.image" />
-            <div class="card-body">
-              <h5 class="card-title">{{ dataB.title }}</h5>
-              <h2 class="card-title">{{ dataB.author }}</h2>
+    <div class="col">
+      <div class="row">
+        <div class="search-bar">
+          <input
+            class="form-control"
+            type="text"
+            name="search"
+            [(ngModel)]="searchText"
+            autocomplete="off"
+            placeholder="Search your book..."
+          />
+        </div>
+      </div>
+      <div class="row">
+        <mat-card
+          class="example-card"
+          *ngFor="
+            let dataB of filteredCategory | filter: searchText;
+            let i = index
+          "
+        >
+          <div class="col">
+            <figure>
+              <img mat-card-image [src]="dataB.image" />
+              <figcaption>
+                <a
+                  mat-button
+                  [routerLink]="['/book/', dataB.id]"
+                  (click)="openDialog()"
+                  class="btn btn-primary btn-block"
+                >
+                  View More
+                </a>
+              </figcaption>
+            </figure>
+
+            <mat-card-content>
+              <i
+                ><b> Title : "{{ dataB.title }}" </b></i
+              >
+              <h5 class="card-title">
+                <h4>
+                  <b><u>Author :</u></b>
+                </h4>
+                "{{ dataB.author }}"
+              </h5>
               <p class="card-text">
                 {{ dataB.price | currency: "USD":true }}
               </p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-block">View More </a>
-            </div>
+            </mat-card-content>
           </div>
-        </div>
-        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
-      </ng-container>
+
+          <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+        </mat-card>
+      </div>
     </div>
   </div>
-</div>
-<footer>
-  <mat-paginator
-    [length]="[length]"
-    [pageSize]="[pageSize]"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-  >
-  </mat-paginator>
-</footer>
+  <!-- <div class="footer">
+    <mat-paginator
+      [length]="length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    >
+    </mat-paginator>
+  </div> -->
+</body>

@@ -28,7 +28,7 @@
     </div>
   </div>
   <br />
-  <div class="row">
+  <div class="row" style="background-color: #3f4a59">
     <div class="wrapper">
       <div class="hoc container clear">
         <div class="nospace elements clear">
@@ -41,170 +41,112 @@
             </div>
           </div>
           <div class="row">
-            <div style="margin-left: 150px" class="col-md-3 one_third first">
-              <article>
+            <mat-card style="margin-left: 170px" class="example-card">
+              <div class="col">
                 <figure>
-                  <img src="images/demo/320x220.png" alt="" />
-                  <figcaption>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#product_view"
-                    >
-                      View Details &raquo;
-                    </button>
-                  </figcaption>
+                  <img mat-card-image [src]="data[1].image" />
                 </figure>
-                <div class="txtwrap">
-                  <h6 class="heading">Nulla quis fermentum</h6>
-                  <p>Justo viverra imperdiet proin ut moldivs</p>
-                </div>
-              </article>
-            </div>
-            <div style="margin-left: 70px" class="col-md-3 one_third">
-              <article>
-                <figure>
-                  <img src="images/demo/320x220.png" alt="" />
-                  <figcaption>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#product_view"
-                    >
-                      View Details &raquo;
-                    </button>
-                  </figcaption>
-                </figure>
-                <div class="txtwrap">
-                  <h6 class="heading">Nulla quis fermentum</h6>
-                  <p>Justo viverra imperdiet proin ut moldivs</p>
-                </div>
-              </article>
-            </div>
-            <div style="margin-left: 30px" class="col-md-3 one_third">
-              <article>
-                <figure>
-                  <img src="images/demo/320x220.png" alt="" />
-                  <figcaption><a href="#">View Details &raquo;</a></figcaption>
-                </figure>
-                <div class="txtwrap">
-                  <h6 class="heading">Risus non iacudivs</h6>
-                  <p>
-                    Mauris pellentesque pellentesque quisque vedivt edivt
-                    venenatis et sodales ut commodo nec odio in sit amet tempus
-                    fedivs
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- <div class="col-md-2" style="margin-left: 250px">
-      <div class="thumbnail">
-        <img src="" alt="" class="img-responsive" />
-        <div class="caption">
-          <h4 class="pull-right">$700.99</h4>
-          <h4><a href="#">Mobile Product</a></h4>
-          <p>Lorem Ipsum</p>
-        </div>
-
-        <div class="space-ten"></div>
-        <div class="btn-ground text-center">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#product_view"
-          >
-            <i class="fa fa-search"></i> Quick View
-          </button>
-        </div>
-        <div class="space-ten"></div>
-      </div>
-    </div>
-    <div class="col-md-2" style="adivgn-items: center; margin-left: 50px">
-      <div class="thumbnail">
-        <img src="" alt="" class="img-responsive" />
-        <div class="caption">
-          <h4 class="pull-right">$700.99</h4>
-          <h4><a href="#">Mobile Product</a></h4>
-          <p>Lorem Ipsum</p>
-        </div>
-
-        <div class="space-ten"></div>
-        <div class="btn-ground text-center">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#product_view"
-          >
-            <i class="fa fa-search"></i> Quick View
-          </button>
-        </div>
-        <div class="space-ten"></div>
-      </div>
-    </div> -->
-    <!-- <div class="col-md-2" style="align-items: center; margin-left: 50px">
-      <div class="thumbnail">
-        <img src="" alt="" class="img-responsive" />
-        <div class="caption">
-          <h4 class="pull-right">$700.99</h4>
-          <h4><a href="#">Mobile Product</a></h4>
-          <p>Lorem Ipsum</p>
-        </div>
-
-        <div class="space-ten"></div>
-        <div class="btn-ground text-center">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#product_view"
-          >
-            <i class="fa fa-search"></i> Quick View
-          </button>
-        </div>
-        <div class="space-ten"></div>
-      </div>
-    </div>
-  </div> -->
-
-    <div class="modal fade product_view" id="product_view">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a href="#" data-dismiss="modal" class="class pull-right"
-              ><span class="glyphicon glyphicon-remove"></span
-            ></a>
-            <h3 class="modal-title">HTML5 is a markup language</h3>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-3 product_img">
-                <img
-                  style="height: 100px"
-                  src="http://img.bbystatic.com/BestBuy_US/images/products/5613/5613060_sd.jpg"
-                  class="img-responsive"
-                />
-              </div>
-              <div class="col-md-3 product_content">
-                <h4>Product Id: <span>51526</span></h4>
-
-                <p>Lorem Ipsum</p>
-                <h3 class="cost">
-                  <span class="glyphicon glyphicon-usd"></span> 75.00
-                  <small class="pre-cost"
-                    ><span class="glyphicon glyphicon-usd"></span> 60.00</small
+                <mat-card-content>
+                  <i
+                    ><b> Title : "{{ data[1].title }}" </b></i
                   >
-                </h3>
+                  <h5 class="card-title">
+                    <h4>
+                      <b><u>Author :</u></b>
+                    </h4>
+                    "{{ data[1].author }}"
+                  </h5>
+                  <p class="card-text">
+                    {{ data[1].price | currency: "USD":true }}
+                  </p>
+                  <mat-card-actions
+                    ><figcaption>
+                      <a
+                        mat-button
+                        [routerLink]="['/home/', data[1].id]"
+                        (click)="openDialog()"
+                        class="btn btn-primary btn-block"
+                      >
+                        View More
+                      </a>
+                    </figcaption></mat-card-actions
+                  >
+                </mat-card-content>
               </div>
-            </div>
+
+              <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
+            </mat-card>
+            <mat-card class="example-card">
+              <div class="col">
+                <figure>
+                  <img mat-card-image [src]="data[3].image" />
+                </figure>
+
+                <mat-card-content>
+                  <i
+                    ><b> Title : "{{ data[3].title }}" </b></i
+                  >
+                  <h5 class="card-title">
+                    <h4>
+                      <b><u>Author :</u></b>
+                    </h4>
+                    "{{ data[3].author }}"
+                  </h5>
+                  <p class="card-text">
+                    {{ data[3].price | currency: "USD":true }}
+                  </p>
+                  <mat-card-actions>
+                    <figcaption>
+                      <a
+                        mat-button
+                        [routerLink]="['/home/', data[3].id]"
+                        (click)="openDialog()"
+                        class="btn btn-primary btn-block"
+                      >
+                        View More
+                      </a>
+                    </figcaption>
+                  </mat-card-actions>
+                </mat-card-content>
+              </div>
+
+              <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
+            </mat-card>
+            <mat-card class="example-card">
+              <div class="col">
+                <figure>
+                  <img mat-card-image [src]="data[5].image" />
+                </figure>
+
+                <mat-card-content>
+                  <i
+                    ><b> Title : "{{ data[5].title }}" </b></i
+                  >
+                  <h5 class="card-title">
+                    <h4>
+                      <b><u>Author :</u></b>
+                    </h4>
+                    "{{ data[5].author }}"
+                  </h5>
+                  <p class="card-text">
+                    {{ data[5].price | currency: "USD":true }}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <figcaption>
+                    <a
+                      mat-button
+                      [routerLink]="['/home/', data[5].id]"
+                      (click)="openDialog()"
+                      class="btn btn-primary btn-block"
+                    >
+                      View More
+                    </a>
+                  </figcaption></mat-card-actions
+                >
+              </div>
+            </mat-card>
           </div>
         </div>
       </div>

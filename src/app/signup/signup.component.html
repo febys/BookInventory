@@ -6,6 +6,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+
 <div class="sidenav">
   <div class="login-main-text">
     <h2>
@@ -15,183 +16,98 @@
     <p>Register from here to access.</p>
   </div>
 </div>
-<div class="main">
-  <div style="margin-top: 100px" class="col">
-    <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
-      <mat-step [stepControl]="emailFormGroup">
-        <form
-          [formGroup]="emailFormGroup"
-          (ngSubmit)="emailStep()"
-          #formone="ngForm"
-        >
-          <ng-template matStepLabel>Fill out your Email</ng-template>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input
-              style="height: 30px"
-              matInput
-              formControlName="username"
-              required
-            />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext type="submit">Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="passwordFormGroup">
-        <form
-          [formGroup]="passwordFormGroup"
-          #formtwo="ngForm"
-          (ngSubmit)="passwordStep()"
-        >
-          <ng-template matStepLabel>
-            <div>Fill out your Password</div>
-          </ng-template>
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="passwordCtrl" />
-            <mat-error>The input is invalid.</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext type="submit">Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="nameFormGroup">
-        <form
-          [formGroup]="nameFormGroup"
-          #formthree="ngForm"
-          (ngSubmit)="registerStep()"
-        >
-          <ng-template matStepLabel>Confirm your information</ng-template>
-          <mat-form-field>
-            <mat-label>First name</mat-label>
-            <input matInput formControlName="firstNameFormCtrl" required />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Last name</mat-label>
-            <input matInput formControlName="lastNameFormCtrl" required />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input
-              type="email"
-              matInput
-              formControlName="emailFormCtrl"
-              required
-            />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="passwordCtrl" />
-            <mat-error>The input is invalid.</mat-error>
-          </mat-form-field>
-
-          <div>
-            <button type="submit" mat-button>Submit</button>
-            <button type="button" mat-button (click)="stepper.reset()">
-              Reset
-            </button>
-          </div>
-        </form>
-      </mat-step>
-    </mat-horizontal-stepper>
-    <!-- <form [formGroup]="formGroup">
+<body>
+  <div class="main">
+    <div class="col">
       <mat-horizontal-stepper
-        al-stepper
-        #linearHorizontalStepper="matHorizontalStepper"
-        formArrayName="formArray"
         [linear]="true"
+        #stepper="matHorizontalStepper"
+        style="margin-top: 100px"
       >
-        <mat-step
-          style="max-height: 200px"
-          formGroupName="0"
-          [stepControl]="formArray?.get([0])"
-        >
-          <ng-template matStepLabel>Fill out your Email</ng-template>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input
-              style="height: 30px"
-              matInput
-              formControlName="emailFormCtrl"
-              required
-            />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext (click)="emailStep()">
-              Next
-            </button>
-          </div>
+        <mat-step [stepControl]="emailFormGroup">
+          <form
+            [formGroup]="emailFormGroup"
+            (ngSubmit)="emailStep()"
+            #formone="ngForm"
+          >
+            <ng-template matStepLabel>Fill out your Email</ng-template>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                style="height: 30px"
+                matInput
+                formControlName="username"
+                required
+              />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext type="submit">Next</button>
+            </div>
+          </form>
         </mat-step>
-
-        <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
-          <ng-template matStepLabel>
-            <div>Fill out your Password</div>
-          </ng-template>
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input
-              type="password
-            "
-              matInput
-              formControlName="passwordCtrl"
-            />
-            <mat-error>The input is invalid.</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+        <mat-step [stepControl]="passwordFormGroup">
+          <form
+            [formGroup]="passwordFormGroup"
+            #formtwo="ngForm"
+            (ngSubmit)="passwordStep()"
+          >
+            <ng-template matStepLabel>
+              <div>Fill out your Password</div>
+            </ng-template>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="passwordCtrl" />
+              <mat-error>The input is invalid.</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext type="submit">Next</button>
+            </div>
+          </form>
         </mat-step>
+        <mat-step [stepControl]="nameFormGroup">
+          <form
+            [formGroup]="nameFormGroup"
+            #formthree="ngForm"
+            (ngSubmit)="registerStep()"
+          >
+            <ng-template matStepLabel>Confirm your information</ng-template>
+            <mat-form-field>
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="firstNameFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <input matInput formControlName="lastNameFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                matInput
+                formControlName="emailFormCtrl"
+                required
+              />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="passwordCtrl" />
+              <mat-error>The input is invalid.</mat-error>
+            </mat-form-field>
 
-        <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
-          <ng-template matStepLabel>Confirm your information</ng-template>
-          <mat-form-field>
-            <mat-label>First name</mat-label>
-            <input matInput formControlName="firstNameFormCtrl" required />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Last name</mat-label>
-            <input matInput formControlName="lastNameFormCtrl" required />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input
-              type="email"
-              matInput
-              formControlName="emailFormCtrl"
-              required
-            />
-            <mat-error>This field is required</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="passwordCtrl" />
-            <mat-error>The input is invalid.</mat-error>
-          </mat-form-field>
-
-          <div>
-            <button mat-button>Done</button>
-            <button
-              type="button"
-              mat-button
-              (click)="linearHorizontalStepper.reset()"
-            >
-              Reset
-            </button>
-          </div>
+            <div>
+              <button type="submit" mat-button>Submit</button>
+              <button type="button" mat-button (click)="stepper.reset()">
+                Reset
+              </button>
+            </div>
+          </form>
         </mat-step>
       </mat-horizontal-stepper>
-    </form> -->
+    </div>
   </div>
-</div>
+</body>
