@@ -47,7 +47,11 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("authToken", res.data.authToken);
           }
         });
+        this.router.navigate["/home"];
       })
       .catch((err) => console.log(err));
+  }
+  public isAuthenticated(): boolean {
+    return this.singingIn;
   }
 }

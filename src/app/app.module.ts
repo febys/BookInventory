@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
 import { DialogComponent } from "./dialogs/dialog/dialog.component";
 import { CarouselModule } from "ngx-owl-carousel-o";
+import { AuthGuardService } from "./auth/authguard.service";
 
 // Google Authentication Service
 export function getAuthServiceConfig() {
@@ -96,6 +97,7 @@ export function getAuthServiceConfig() {
     AppauthService,
     BookService,
     BookFormService,
+    AuthGuardService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfig,

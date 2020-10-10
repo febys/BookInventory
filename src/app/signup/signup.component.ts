@@ -8,6 +8,8 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AppauthService } from "../auth/appauth.service";
+import { TwoStepAuthDto } from "../auth/twoStepAuthDto";
+import { Users } from "../auth/user";
 
 @Component({
   selector: "app-signup",
@@ -16,11 +18,12 @@ import { AppauthService } from "../auth/appauth.service";
 })
 export class SignupComponent implements OnInit {
   formGroup: FormGroup;
-
+  user: Users;
   nameFormGroup: FormGroup;
   emailFormGroup: FormGroup;
   passwordFormGroup: FormGroup;
   uuid: any;
+  authTowStep: TwoStepAuthDto;
   /** Returns a FormArray with the name 'formArray'. */
   get formArray(): AbstractControl | null {
     return this.formGroup.get("formArray");
@@ -28,7 +31,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private authService: AppauthService
+    private authService: AppauthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -49,10 +53,10 @@ export class SignupComponent implements OnInit {
     if (this.emailFormGroup.valid) {
       console.log(this.emailFormGroup.value);
       this.authService.uuid(this.emailFormGroup.value).subscribe((value) => {
-        const em = value.username;
-        this.uuid = value.uuid;
-        console.log(this.uuid);
-        console.log(em);
+        // this.user.username = value.email;
+        // this.authTowStep.uuid = value.uuid;
+        //console.log(this.uuid);
+        console.log(this.user.username);
       });
     }
   }
@@ -62,15 +66,19 @@ export class SignupComponent implements OnInit {
       this.authService
         .password(this.passwordFormGroup.value)
         .subscribe((value) => {
-          console.log(value.uuid);
+          // this.user.password = value.password;
+          this.user.uuid = value.uuid;
+          console.log(this.user.password);
         });
     }
   }
   registerStep() {
     if (this.nameFormGroup.valid) {
-      this.authService
-        .register(this.nameFormGroup.value)
-        .subscribe((data) => console.log(data));
+      this.authService.register(this.nameFormGroup.value).subscribe((data) => {
+        localStorage.setItem("user", data);
+        return this.router.navigate["/login"];
+        console.log(data);
+      });
     }
   }
 }

@@ -30,4 +30,5 @@ export class AppauthService {
   register(newUser: Users): Observable<any> {
     return this._httpClient.post(`${this._url}/register`, newUser);
   }
+  logout() {}
 }

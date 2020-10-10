@@ -30,7 +30,7 @@ export class AdminBooksComponent implements OnInit {
     this.bookService.getDataList({ fillFieldLabels: true }).subscribe(
       (res) => {
         this.data = res.data.list;
-        this.length = this.data.length;
+        this.length = this.data.totalRecords;
 
         console.log(this.dtOptions);
         console.log(this.length);

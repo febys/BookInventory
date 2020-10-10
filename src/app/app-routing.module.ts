@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuardService } from "./auth/authguard.service";
 import { AdminBooksComponent } from "./book/admin-books/admin-books.component";
 import { BookFormComponent } from "./book/book-form/book-form.component";
 import { BookComponent } from "./book/book.component";
@@ -14,9 +15,21 @@ const routes: Routes = [
   { path: "book/:id", component: BookComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "admin/books/new", component: BookFormComponent },
-  { path: "admin/books/:id", component: BookFormComponent },
-  { path: "admin/books", component: AdminBooksComponent },
+  {
+    path: "admin/books/new",
+    component: BookFormComponent,
+    // canActivate: [AuthGuardService],
+  },
+  {
+    path: "admin/books/:id",
+    component: BookFormComponent,
+    // canActivate: [AuthGuardService],
+  },
+  {
+    path: "admin/books",
+    component: AdminBooksComponent,
+    // canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({
