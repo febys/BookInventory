@@ -50,12 +50,12 @@ export class BookFormComponent implements OnInit {
   }
 
   private initForm() {
-    let title = "";
-    let description = "";
-    let category = "";
-    let author = "";
-    let image = "";
-    let price = "";
+    // let title = "";
+    // let description = "";
+    // let category = "";
+    // let author = "";
+    // let image = "";
+    // let price = "";
 
     if (this.editMode) {
       this.bookService.getData(this.id, this.editMode).subscribe((value) => {
