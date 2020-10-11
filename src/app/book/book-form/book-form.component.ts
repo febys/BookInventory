@@ -24,9 +24,8 @@ export class BookFormComponent implements OnInit {
     private route: ActivatedRoute,
     private bookService: BookService
   ) {}
-  ionViewDidLoad() {}
+
   ngOnInit(): void {
-    // console.log("ionViewDidLoad AboutPage");
     this.bookService.getMetaData().subscribe((res) => {
       this.bookMetadata = res.data.fieldMap;
       // console.log(this.bookMetadata);
@@ -51,12 +50,12 @@ export class BookFormComponent implements OnInit {
   }
 
   private initForm() {
-    // let title = "";
-    // let description = "";
-    // let category = "";
-    // let author = "";
-    // let image = "";
-    // let price = "";
+    let title = "";
+    let description = "";
+    let category = "";
+    let author = "";
+    let image = "";
+    let price = "";
 
     if (this.editMode) {
       this.bookService.getData(this.id, this.editMode).subscribe((value) => {

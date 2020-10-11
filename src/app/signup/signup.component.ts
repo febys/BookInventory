@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit {
         .password(this.passwordFormGroup.value)
         .subscribe((value) => {
           // this.user.password = value.password;
-          this.user.uuid = value.uuid;
+          // this.user.uuid = value.uuid;
           console.log(this.user.password);
         });
     }
