@@ -9,10 +9,10 @@ body {
   font-family: "Numans", sans-serif;
 }
 .search-bar {
-  float: right;
+  display: flex;
   max-width: 300px;
   padding-bottom: 50px;
-  margin: auto;
+
 }
 .cardB {
   height: 300px;

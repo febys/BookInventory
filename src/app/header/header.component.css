@@ -87,7 +87,7 @@ nav ol {
 }
 #mainav .drop:after {
   top: 25px;
-  left: 15px;
+  left: 6px;
 }
 #mainav li li .drop:after {
   top: 15px;

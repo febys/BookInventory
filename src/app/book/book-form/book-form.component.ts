@@ -37,8 +37,7 @@ export class BookFormComponent implements OnInit {
       console.log(this.editMode);
       this.initForm();
     });
-    if (this.editMode) {
-    }
+
     this.bookFG = new FormGroup({
       title: new FormControl(""),
       description: new FormControl(""),
@@ -50,13 +49,6 @@ export class BookFormComponent implements OnInit {
   }
 
   private initForm() {
-    // let title = "";
-    // let description = "";
-    // let category = "";
-    // let author = "";
-    // let image = "";
-    // let price = "";
-
     if (this.editMode) {
       this.bookService.getData(this.id, this.editMode).subscribe((value) => {
         this.data = value;

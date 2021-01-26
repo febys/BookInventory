@@ -9,12 +9,10 @@ import { Users } from "./user";
   providedIn: "root",
 })
 export class AppauthService {
-  // tslint:disable-next-line:variable-name
   private readonly _url: string;
   idToken?: string;
-  // tslint:disable-next-line:variable-name
   constructor(private _httpClient: HttpClient) {
-    this._url = "api/auth";
+    this._url = 'api/auth';
   }
 
   gaLogin(idToken: string) {

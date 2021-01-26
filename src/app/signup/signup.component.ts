@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { AppauthService } from "../auth/appauth.service";
-import { TwoStepAuthDto } from "../auth/twoStepAuthDto";
-import { Users } from "../auth/user";
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppauthService } from '../auth/appauth.service';
+import { TwoStepAuthDto } from '../auth/twoStepAuthDto';
+import { Users } from '../auth/user';
 
 @Component({
-  selector: "app-signup",
-  templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.css"],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
   formGroup: FormGroup;
@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   authTowStep: TwoStepAuthDto;
   /** Returns a FormArray with the name 'formArray'. */
   get formArray(): AbstractControl | null {
-    return this.formGroup.get("formArray");
+    return this.formGroup.get('formArray');
   }
 
   constructor(
@@ -37,16 +37,16 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.emailFormGroup = new FormGroup({
-      username: new FormControl("", Validators.email),
+      username: new FormControl('', Validators.email),
     });
     this.passwordFormGroup = this._formBuilder.group({
-      passwordCtrl: ["", Validators.required],
+      passwordCtrl: ['', Validators.required],
     });
     this.nameFormGroup = this._formBuilder.group({
-      firstNameFormCtrl: ["", Validators.required],
-      lastNameFormCtrl: ["", Validators.required],
-      emailFormCtrl: ["", Validators.email],
-      passwordCtrl: ["", Validators.required],
+      firstNameFormCtrl: ['', Validators.required],
+      lastNameFormCtrl: ['', Validators.required],
+      emailFormCtrl: ['', Validators.email],
+      passwordCtrl: ['', Validators.required],
     });
   }
   emailStep() {
@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
       this.authService.uuid(this.emailFormGroup.value).subscribe((value) => {
         // this.user.username = value.email;
         // this.authTowStep.uuid = value.uuid;
-        //console.log(this.uuid);
+        // console.log(this.uuid);
         console.log(this.user.username);
       });
     }
@@ -75,8 +75,8 @@ export class SignupComponent implements OnInit {
   registerStep() {
     if (this.nameFormGroup.valid) {
       this.authService.register(this.nameFormGroup.value).subscribe((data) => {
-        localStorage.setItem("user", data);
-        return this.router.navigate["/login"];
+        localStorage.setItem('user', data);
+        return this.router.navigate['/login'];
         console.log(data);
       });
     }

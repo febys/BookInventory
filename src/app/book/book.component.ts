@@ -1,16 +1,16 @@
-import { keyframes } from "@angular/animations";
-import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material";
-import { ActivatedRoute, Params } from "@angular/router";
-import { DialogComponent } from "../dialogs/dialog/dialog.component";
-import { Book } from "./modules/book";
+import { keyframes } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ActivatedRoute, Params } from '@angular/router';
+import { DialogComponent } from '../dialogs/dialog/dialog.component';
+import { Book } from './modules/book';
 
-import { BookService } from "./services/book.service";
+import { BookService } from './services/book.service';
 
 @Component({
-  selector: "app-book",
-  templateUrl: "./book.component.html",
-  styleUrls: ["./book.component.css"],
+  selector: 'app-book',
+  templateUrl: './book.component.html',
+  styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit {
   data: Book[] = [];
@@ -22,7 +22,7 @@ export class BookComponent implements OnInit {
   id: number;
   idF: number;
   dataF: any = [];
-  boxMode: boolean = false;
+  boxMode = false;
   searchText;
   constructor(
     private bookService: BookService,
@@ -35,7 +35,7 @@ export class BookComponent implements OnInit {
       this.length = res.data.totalRecords;
       this.pageSize = res.data.pageSize;
       this.route.queryParamMap.subscribe((parms) => {
-        this.categoryB = parms.get("categoryB");
+        this.categoryB = parms.get('categoryB');
         this.filteredCategory = this.categoryB
           ? this.data.filter((p) => p.category === this.categoryB)
           : this.data;
@@ -49,11 +49,9 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("init");
-
     this.route.params.subscribe((params: Params) => {
-      this.id = +params["id"];
-      this.boxMode = params["id"] != null;
+      this.id = +params.id;
+      this.boxMode = params.id != null;
       this.openDialog();
     });
   }
@@ -64,9 +62,8 @@ export class BookComponent implements OnInit {
     dialogConfig.autoFocus = true;
     if (this.boxMode) {
       this.bookService.getData(this.id, this.boxMode).subscribe((value) => {
-        this.idF = value.id;
+        // this.idF = value.id;
         this.dataF = value;
-        console.log(this.idF);
         console.log(this.dataF.data.title);
 
         this.dialog.open(DialogComponent, {
@@ -83,5 +80,4 @@ export class BookComponent implements OnInit {
       });
     }
   }
-  private _getDataList(): void {}
 }

@@ -18,7 +18,6 @@ import { DataTablesModule } from "angular-datatables";
 import { BookService } from "./book/services/book.service";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { AppauthService } from "./auth/appauth.service";
-import { BookFormService } from "./book/book-form/book-form.service";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import {
   MatNativeDateModule,
@@ -96,7 +95,7 @@ export function getAuthServiceConfig() {
     },
     AppauthService,
     BookService,
-    BookFormService,
+
     AuthGuardService,
     {
       provide: AuthServiceConfig,
