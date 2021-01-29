@@ -22,7 +22,7 @@ export class LoginService {
   ) { }
 
   signin() {
-    console.log('trueeee',this.singingIn);
+
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((userData: SocialUser) => {

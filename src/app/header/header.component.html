@@ -21,7 +21,7 @@
     <li class="nav-item" style="padding-top: 3px">
       <a class="nav-link" routerLink="/login" style="color: #82b440">Log In</a>
     </li>
-    <li class="nav-item" style="padding-top: 3px">
+    <li class="nav-item" style="padding-top: 3px" *ngIf="isAuth()">
       <a class="nav-link" routerLink="/register" style="color: aliceblue"
         >Register</a
       >
