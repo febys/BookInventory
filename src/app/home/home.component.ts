@@ -22,9 +22,8 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params["id"];
-      this.boxMode = params["id"] != null;
-      this.openDialog();
+      this.id = +params.id;
+      this.boxMode = params.id != null;
     });
     this.bookService.getDataList({ fillFieldLabels: true }).subscribe(
       (res) => {
@@ -33,24 +32,20 @@ export class HomeComponent implements OnInit {
 
         console.log(this.data.id);
       },
-
-      () => console.log("Complete")
     );
   }
 
   ngOnInit() {
     console.log(this.data);
   }
-  public openDialog() {
+  public openDialog(id:number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
 
-    this.bookService.getData(this.id, this.boxMode).subscribe((value) => {
+    this.bookService.getData(id, this.boxMode).subscribe((value) => {
       this.idF = value.id;
       this.dataF = value;
-      console.log(this.idF);
-      console.log(this.dataF.data.title);
 
       this.dialog.open(DialogComponent, {
         data: {

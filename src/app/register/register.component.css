@@ -103,7 +103,14 @@ input.ng-invalid.ng-touched {
   overflow-x: hidden;
 
 }
-
+.error{
+  margin-top: 10px;
+  background-color: #b41505;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .main {
   padding: 0px 10px;
   display: flex;
@@ -153,11 +160,11 @@ input.ng-invalid.ng-touched {
     border-color: white;
 
   }
-  .cancel:hover {
-    background-color:#ffc107 ;
-    color: black;
-    border: none;
-  }
+.cancel:hover {
+  background-color:#ffc107 ;
+  color: black;
+  border: none;
+}
 
   .login-form {
     margin-top: 50%;
@@ -178,14 +185,7 @@ input.ng-invalid.ng-touched {
 .login-main-text h2 {
   font-weight: 300;
 }
-.error{
-  margin-top: 10px;
-  background-color: #b41505;
-  opacity: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .btn-black {
   background-color: #000 !important;
   color: #fff;

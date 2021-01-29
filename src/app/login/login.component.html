@@ -20,8 +20,8 @@
 />
 <!------ Include the above in your HEAD tag ---------->
 <body>
-  <div class="row">
-    <div class="sidenav col-md-4">
+  <div class="row container">
+    <div class="sidenav ">
       <div class="login-main-text">
         <h2>
           Application<br />
@@ -30,7 +30,7 @@
         <p>Login or register from here to access.</p>
       </div>
     </div>
-    <div class="main col-md-8">
+    <div class="main ">
       <div style="margin-top: 140px; margin-left: 100px" class="card">
         <div class="card-header">
           <h3>Sign In</h3>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="input-group form-group">
+          <div class="input-group form-group" style="display: flex;flex-direction: column;">
             <div
               style="margin-top: 30px; margin-left: 30px"
               class="input-group-prepend"
@@ -48,7 +48,9 @@
               ><button class="btn btn-warning" (click)="signInGoogle()">
                 Google SignIn <i class="fab fa-google"></i>
               </button>
-            </div>
+
+          </div>
+            <span class="error" >{{login.errorMessage}} </span>
           </div>
         </div>
       </div>

@@ -7,29 +7,31 @@ import { BookComponent } from './book/book.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'home/:id', component: HomeComponent },
   { path: 'book', component: BookComponent },
   { path: 'book/:id', component: BookComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'admin/books/new',
     component: BookFormComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'admin/books/:id',
     component: BookFormComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'admin/books',
     component: AdminBooksComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

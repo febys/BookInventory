@@ -51,9 +51,10 @@ export class SignupComponent implements OnInit {
   }
   emailStep() {
     if (this.emailFormGroup.valid) {
-      console.log(this.emailFormGroup.value);
       this.authService.uuid(this.emailFormGroup.value).subscribe((value) => {
-        // this.user.username = value.email;
+        console.log(value);
+        this.user.username = value.email;
+
         // this.authTowStep.uuid = value.uuid;
         // console.log(this.uuid);
         console.log(this.user.username);

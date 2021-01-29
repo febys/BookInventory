@@ -29,7 +29,7 @@ export class BookComponent implements OnInit {
     private route: ActivatedRoute,
     public dialog: MatDialog
   ) {
-    // this._getDataList();
+
     this.bookService.getDataList({ fillFieldLabels: true }).subscribe((res) => {
       this.data = res.data.list;
       this.length = res.data.totalRecords;
@@ -39,6 +39,7 @@ export class BookComponent implements OnInit {
         this.filteredCategory = this.categoryB
           ? this.data.filter((p) => p.category === this.categoryB)
           : this.data;
+
       });
     });
 
@@ -46,27 +47,29 @@ export class BookComponent implements OnInit {
       this.bookMetadata = res.data.fieldMap;
       // console.log(this.bookMetadata);
     });
+
+
   }
 
   ngOnInit() {
+
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
       this.boxMode = params.id != null;
-      this.openDialog();
+
+
     });
   }
 
-  public openDialog() {
+  public openDialog(id:number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     if (this.boxMode) {
-      this.bookService.getData(this.id, this.boxMode).subscribe((value) => {
+      this.bookService.getData(id, this.boxMode).subscribe((value) => {
         // this.idF = value.id;
         this.dataF = value;
-        console.log(this.dataF.data.title);
-
-        this.dialog.open(DialogComponent, {
+          this.dialog.open(DialogComponent, {
           data: {
             title: this.dataF.data.title,
             author: this.dataF.data.author,
@@ -79,5 +82,6 @@ export class BookComponent implements OnInit {
         });
       });
     }
+
   }
 }

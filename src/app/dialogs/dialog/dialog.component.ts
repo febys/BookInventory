@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { from } from "rxjs";
 import { MAT_DIALOG_DATA } from "@angular/material";
 @Component({
   selector: "app-dialog",

@@ -15,7 +15,7 @@
             <button
               class="btn btn-primary"
               style="margin-left: 20px"
-              routerLink="/book"
+              routerLink='/book'
             >
               Books
             </button>
@@ -57,8 +57,7 @@
                   ><figcaption>
                     <a
                       mat-button
-                      [routerLink]="['/home/', data[1].id]"
-                      (click)="openDialog()"
+                      (click)="openDialog(data[1].id)"
                       class="btn btn-primary btn-block"
                     >
                       View More
@@ -91,8 +90,7 @@
                   <figcaption>
                     <a
                       mat-button
-                      [routerLink]="['/home/', data[3].id]"
-                      (click)="openDialog()"
+                      (click)="openDialog(data[3].id)"
                       class="btn btn-primary btn-block"
                     >
                       View More
@@ -128,8 +126,8 @@
                 <figcaption>
                   <a
                     mat-button
-                    [routerLink]="['/home/', data[5].id]"
-                    (click)="openDialog()"
+
+                    (click)="openDialog(data[5].id)"
                     class="btn btn-primary btn-block"
                   >
                     View More

@@ -15,6 +15,23 @@
   background: linear-gradient(to left, #b29f94, #9c7364);
 
 }
+mat-card-actions a:focus{
+  background: unset;
+  background-color: #82b440;
+  color: white;
+  border-color: #82b440;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color:#82b440;
+  border-color: #82b440;
+
+}
+mat-card-actions a:hover{
+  border: #82b440 solid 2px ;
+  color: #82b440;
+}
+
 .world-book{
   display: flex;
   justify-content: center;

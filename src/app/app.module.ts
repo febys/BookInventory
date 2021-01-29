@@ -9,8 +9,6 @@ import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BookComponent } from "./book/book.component";
 import { LoginComponent } from "./login/login.component";
-import { GoogleLoginProvider } from "angular-6-social-login";
-import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { AdminBooksComponent } from "./book/admin-books/admin-books.component";
 import { BookFormComponent } from "./book/book-form/book-form.component";
 import { SignupComponent } from "./signup/signup.component";
@@ -30,24 +28,29 @@ import {
   MatCardModule,
   MatGridListModule,
 } from "@angular/material";
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
 import { DialogComponent } from "./dialogs/dialog/dialog.component";
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { AuthGuardService } from "./auth/authguard.service";
+import { RegisterComponent } from './register/register.component';
+
+
 
 // Google Authentication Service
-export function getAuthServiceConfig() {
-  return new AuthServiceConfig([
-    {
-      id: GoogleLoginProvider.PROVIDER_ID,
-      provider: new GoogleLoginProvider(
-        "556932462258-tvl35ac9c14pbc2kpftk1ahtckhtigmj.apps.googleusercontent.com"
-      ),
-    },
-  ]);
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("608387110510-qgbubj06qqika855ivhnk6fqdpvrj1ha.apps.googleusercontent.com")
+  }
+]);
+export function provideConfig() {
+  return config;
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +63,7 @@ export function getAuthServiceConfig() {
     BookFormComponent,
     SignupComponent,
     DialogComponent,
+    RegisterComponent,
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -77,6 +81,7 @@ export function getAuthServiceConfig() {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+
     MatButtonToggleModule,
     MatPaginatorModule,
     MatDialogModule,
@@ -93,15 +98,20 @@ export function getAuthServiceConfig() {
       useClass: AuthInterceptor,
       multi: true,
     },
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
     AppauthService,
     BookService,
 
-    AuthGuardService,
-    {
-      provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfig,
-    },
+    // AuthGuardService,
+    // {
+    //   provide: ,
+    //   useFactory: ,
+    // },
   ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
