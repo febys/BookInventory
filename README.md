@@ -1,6 +1,7 @@
 # BookInventory
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
+Per tu loguar duhet te jete nje accaunt ose i regjistruar ose duhet te te regjistroje admini.Pas logimit shfaqet opsioni i register dhe menaxhimit te adminit.
 
 ## Development server
 
