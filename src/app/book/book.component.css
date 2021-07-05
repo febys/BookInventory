@@ -1,11 +1,11 @@
 body {
-  background: url(https://myfcpl.org/wp-content/uploads/2019/10/photo-1507842217343-583bb7270b66.jpg);
+  background: url(src/assets/books.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-repeat: repeat-y;
-  height: auto;
+  height: -webkit-fill-available;
   font-family: "Numans", sans-serif;
 }
 .search-bar {
